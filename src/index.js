@@ -69,7 +69,8 @@ citySearch("Dallas");
 let ftemp = document.querySelector("#fahrenheit");
 ftemp.addEventListener("click", function (event) {
   event.preventDefault();
-  document.querySelector("#tempe").innerHTML = "66";
+  let tem = document.querySelector("#tempe");
+  tem.innerHTML = tem * (9 / 5) + 32;
 });
 
 let ctemp = document.querySelector("#celsius");
