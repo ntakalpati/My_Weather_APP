@@ -65,3 +65,15 @@ let currentbtn = document.querySelector("#cbtn");
 currentbtn.addEventListener("click", showCurrent);
 
 citySearch("Dallas");
+
+let ftemp = document.querySelector("#fahrenheit");
+ftemp.addEventListener("click", function (event) {
+  event.preventDefault();
+  document.querySelector("#tempe").innerHTML = "66";
+});
+
+let ctemp = document.querySelector("#celsius");
+ctemp.addEventListener("click", function (event) {
+  event.preventDefault();
+  document.querySelector("#tempe").innerHTML = "19";
+});
