@@ -69,12 +69,16 @@ citySearch("Dallas");
 let ftemp = document.querySelector("#fahrenheit");
 ftemp.addEventListener("click", function (event) {
   event.preventDefault();
-  let tem = document.querySelector("#tempe").value;
-  tem.innerHTML = tem * (9 / 5) + 32;
+
+  let temp = document.querySelector("#tempe").innerHTML;
+  document.querySelector("#tempe").innerHTML = Math.round((temp * 9) / 5 + 32);
 });
 
 let ctemp = document.querySelector("#celsius");
 ctemp.addEventListener("click", function (event) {
   event.preventDefault();
-  document.querySelector("#tempe").innerHTML = "19";
+  let temp = document.querySelector("#tempe").innerHTML;
+  document.querySelector("#tempe").innerHTML = Math.round(
+    (5 / 9) * (temp - 32)
+  );
 });
