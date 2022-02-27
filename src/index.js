@@ -1,23 +1,24 @@
-let now = new Date();
+function formatDate(response) {
+  let now = new Date(response);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-
-let day = days[now.getDay()];
-let hour = (now.getHours() < 10 ? "0" : "") + now.getHours();
-let min = (now.getMinutes() < 10 ? "0" : "") + now.getMinutes();
-document.querySelector("#day").innerHTML = `${day} ${hour}:${min}`;
+  let day = days[now.getDay()];
+  let hour = (now.getHours() < 10 ? "0" : "") + now.getHours();
+  let min = (now.getMinutes() < 10 ? "0" : "") + now.getMinutes();
+  return `${day} ${hour}:${min}`;
+  console.log(`${day} ${hour}:${min}`);
+}
 
 /* Display City, temperature, humidity, wind speed, Description*/
 function showTemperature(response) {
-  console.log(response.data.name);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#tempe").innerHTML = Math.round(
     response.data.main.temp
@@ -26,6 +27,19 @@ function showTemperature(response) {
   document.querySelector("#wind").innerHTML = response.data.wind.speed;
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+
+  document.querySelector("#day").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#icon")
+    .setAttribute("alt", response.data.weather[0].description);
 }
 
 /* Search City */
@@ -64,8 +78,6 @@ searchbtn.addEventListener("click", submitClick);
 let currentbtn = document.querySelector("#cbtn");
 currentbtn.addEventListener("click", showCurrent);
 
-citySearch("Dallas");
-
 let ftemp = document.querySelector("#fahrenheit");
 ftemp.addEventListener("click", function (event) {
   event.preventDefault();
@@ -82,3 +94,5 @@ ctemp.addEventListener("click", function (event) {
     (5 / 9) * (temp - 32)
   );
 });
+
+citySearch("Dallas");
