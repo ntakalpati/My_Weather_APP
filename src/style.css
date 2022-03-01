@@ -57,3 +57,12 @@ li {
 p {
   text-align: center;
 }
+
+.weather-temperature.active {
+  color: blue;
+  cursor: default;
+}
+
+.weather-temperature.active:hover {
+  text-decoration: none;
+}

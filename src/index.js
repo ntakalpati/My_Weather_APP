@@ -40,6 +40,8 @@ function showTemperature(response) {
   document
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
+
+  celtemp = response.data.main.temp;
 }
 
 /* Search City */
@@ -81,18 +83,25 @@ currentbtn.addEventListener("click", showCurrent);
 let ftemp = document.querySelector("#fahrenheit");
 ftemp.addEventListener("click", function (event) {
   event.preventDefault();
+  debugger;
+  ctemp.classList.remove("active");
+  ftemp.classList.add("active");
 
-  let temp = document.querySelector("#tempe").innerHTML;
-  document.querySelector("#tempe").innerHTML = Math.round((temp * 9) / 5 + 32);
+  let fahtemp = Math.round((celtemp * 9) / 5 + 32);
+  document.querySelector("#tempe").innerHTML = fahtemp;
 });
 
 let ctemp = document.querySelector("#celsius");
 ctemp.addEventListener("click", function (event) {
   event.preventDefault();
-  let temp = document.querySelector("#tempe").innerHTML;
-  document.querySelector("#tempe").innerHTML = Math.round(
-    (5 / 9) * (temp - 32)
-  );
+
+  ctemp.classList.add("active");
+  ftemp.classList.remove("active");
+
+  /*let temp = document.querySelector("#tempe").innerHTML;*/
+  document.querySelector("#tempe").innerHTML = Math.round(celtemp);
 });
+
+let celtemp = null;
 
 citySearch("Dallas");
