@@ -58,12 +58,12 @@ p {
   text-align: center;
 }
 
-.weather-temperature.active {
+.weather-temperature a.active {
   color: blue;
   cursor: default;
 }
 
-.weather-temperature.active:hover {
+.weather-temperature a.active:hover {
   text-decoration: none;
 }
 
