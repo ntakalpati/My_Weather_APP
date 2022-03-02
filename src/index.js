@@ -17,6 +17,32 @@ function formatDate(response) {
   console.log(`${day} ${hour}:${min}`);
 }
 
+function displayForecast() {
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="row">
+      <div class="col-2">
+        <div class="weather-forecast-date">${day}</div>
+          <img src="http://openweathermap.org/img/wn/04n@2x.png"
+            alt=""
+              width="40"
+          />
+          <div class="calss weather-forecast°-temperature">
+            <span class="temp-max">40° </span>
+            <span class="temp-min">19° </span>
+        </div>
+      </div>
+    </div>
+   `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  document.querySelector("#forecast").innerHTML = forecastHTML;
+}
+
 /* Display City, temperature, humidity, wind speed, Description*/
 function showTemperature(response) {
   document.querySelector("#city").innerHTML = response.data.name;
