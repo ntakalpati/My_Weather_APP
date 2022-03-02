@@ -66,3 +66,24 @@ p {
 .weather-temperature.active:hover {
   text-decoration: none;
 }
+
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  color: royalblue;
+}
+
+.weather-forecast-date,
+.temp-min {
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.weather.forecast-temp {
+  font-size: 13px;
+}
+
+.temp-min {
+  font-size: 16px;
+  opacity: 0.6;
+}
