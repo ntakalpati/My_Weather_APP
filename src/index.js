@@ -18,25 +18,24 @@ function formatDate(response) {
 }
 
 function displayForecast() {
-  let forecastHTML = `<div class="row">`;
   let days = ["Thu", "Fri", "Sat", "Sun"];
+  let forecastHTML = `<div class="row">`;
+
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
-      `
-    <div class="row">
+      `      
       <div class="col-2">
         <div class="weather-forecast-date">${day}</div>
           <img src="http://openweathermap.org/img/wn/04n@2x.png"
             alt=""
-              width="40"
+              width="42"
           />
-          <div class="calss weather-forecast°-temperature">
+          <div class="weather-forecast-temperature">
             <span class="temp-max">40° </span>
             <span class="temp-min">19° </span>
-        </div>
-      </div>
-    </div>
+          </div>
+      </div>      
    `;
   });
   forecastHTML = forecastHTML + `</div>`;
@@ -131,3 +130,4 @@ ctemp.addEventListener("click", function (event) {
 let celtemp = null;
 
 citySearch("Dallas");
+displayForecast();

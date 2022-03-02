@@ -73,10 +73,9 @@ p {
   color: royalblue;
 }
 
-.weather-forecast-date,
-.temp-min {
+.weather-forecast-date {
   font-size: 16px;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .weather.forecast-temp {
@@ -84,6 +83,5 @@ p {
 }
 
 .temp-min {
-  font-size: 16px;
-  opacity: 0.6;
+  opacity: 0.5;
 }
