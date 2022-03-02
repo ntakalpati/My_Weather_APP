@@ -83,7 +83,7 @@ currentbtn.addEventListener("click", showCurrent);
 let ftemp = document.querySelector("#fahrenheit");
 ftemp.addEventListener("click", function (event) {
   event.preventDefault();
-  debugger;
+
   ctemp.classList.remove("active");
   ftemp.classList.add("active");
 
