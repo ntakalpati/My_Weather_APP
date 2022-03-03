@@ -25,14 +25,14 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
-  let forcast = reponse.data.daily;
+  let forecast = response.data.daily;
   let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
-        `      
+        `    
       <div class="col-2">
         <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
           <img src="http://openweathermap.org/img/wn/${
@@ -42,10 +42,10 @@ function displayForecast(response) {
               width="42"
           />
           <div class="weather-forecast-temperature">
-            <span class="temp-max">${Math.round(forecastDay.temp.max)}° </span>
-            <span class="temp-min">${Math.round(forecastDay.temp.min)}° </span>
-          </div>
-      </div>      
+            <span class="temp-max">${Math.round(forecastDay.temp.max)}°</span>
+            <span class="temp-min">${Math.round(forecastDay.temp.min)}°</span>
+        </div>
+      </div>    
    `;
     }
   });
