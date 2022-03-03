@@ -25,7 +25,10 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
+  debugger;
   let forecast = response.data.daily;
+  debugger;
+  console.log(forecast);
   let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
@@ -53,6 +56,12 @@ function displayForecast(response) {
   document.querySelector("#forecast").innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  let apiKey = "ebdbb6fd43e2e58449d1d839449c5958";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 /* Display City, temperature, humidity, wind speed, Description*/
 function showTemperature(response) {
   document.querySelector("#city").innerHTML = response.data.name;
@@ -78,6 +87,7 @@ function showTemperature(response) {
     .setAttribute("alt", response.data.weather[0].description);
 
   celtemp = response.data.main.temp;
+  getForecast(response.data.coord);
 }
 
 /* Search City */
@@ -141,4 +151,3 @@ ctemp.addEventListener("click", function (event) {
 let celtemp = null;
 
 citySearch("Dallas");
-displayForecast();
