@@ -24,9 +24,10 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-function displayForecast() {
+function displayForecast(response) {
   let forcast = reponse.data.daily;
   let forecastHTML = `<div class="row">`;
+
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML =
